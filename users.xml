@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="10.0.2" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="by.nanial.testtask.domain.User">
+    <void property="email">
+     <string>gaz@mail.by</string>
+    </void>
+    <void property="id">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>saveliy</string>
+    </void>
+    <void property="phoneNumbers">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <string>37500000000</string>
+      </void>
+      <void method="add">
+       <string>375111666444</string>
+      </void>
+     </object>
+    </void>
+    <void property="roles">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object class="java.lang.Enum" method="valueOf">
+        <class>by.nanial.testtask.domain.Role</class>
+        <string>USER</string>
+       </object>
+      </void>
+      <void method="add">
+       <object class="java.lang.Enum" method="valueOf">
+        <class>by.nanial.testtask.domain.Role</class>
+        <string>ADMIN</string>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="surname">
+     <string>glazunkov</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
