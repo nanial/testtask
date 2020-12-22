@@ -4,34 +4,25 @@
   <void method="add">
    <object class="by.nanial.testtask.domain.User">
     <void property="email">
-     <string>gaz@mail.by</string>
+     <string>mamam@mam.kc</string>
     </void>
     <void property="id">
      <int>1</int>
     </void>
     <void property="name">
-     <string>saveliy</string>
+     <string>mama</string>
     </void>
     <void property="phoneNumbers">
      <object class="java.util.ArrayList">
       <void method="add">
-       <string>37500000000</string>
-      </void>
-      <void method="add">
-       <string>375111666444</string>
+       <string>375000888555</string>
       </void>
      </object>
     </void>
     <void property="roles">
      <object class="java.util.ArrayList">
       <void method="add">
-       <object class="java.lang.Enum" method="valueOf">
-        <class>by.nanial.testtask.domain.Role</class>
-        <string>USER</string>
-       </object>
-      </void>
-      <void method="add">
-       <object class="java.lang.Enum" method="valueOf">
+       <object class="java.lang.Enum" id="Role0" method="valueOf">
         <class>by.nanial.testtask.domain.Role</class>
         <string>ADMIN</string>
        </object>
@@ -39,7 +30,46 @@
      </object>
     </void>
     <void property="surname">
-     <string>glazunkov</string>
+     <string>mamma</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="by.nanial.testtask.domain.User">
+    <void property="id">
+     <int>2</int>
+    </void>
+    <void property="name">
+     <string>mama</string>
+    </void>
+    <void property="phoneNumbers">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <string>375444000555</string>
+      </void>
+     </object>
+    </void>
+    <void property="roles">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object class="java.lang.Enum" id="Role1" method="valueOf">
+        <class>by.nanial.testtask.domain.Role</class>
+        <string>USER</string>
+       </object>
+      </void>
+      <void method="add">
+       <object idref="Role0"/>
+      </void>
+      <void method="add">
+       <object idref="Role0"/>
+      </void>
+      <void method="add">
+       <object idref="Role1"/>
+      </void>
+     </object>
+    </void>
+    <void property="surname">
+     <string>mdmdm</string>
     </void>
    </object>
   </void>
