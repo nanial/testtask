@@ -2,7 +2,6 @@ package by.nanial.testtask.dao;
 
 import by.nanial.testtask.apiDao.UserDao;
 import by.nanial.testtask.domain.User;
-
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
@@ -27,10 +26,9 @@ public class UserDaoImpl implements UserDao {
 
         try {
             XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream
-                    ("D:\\study\\java\\by.nanial.testtask\\users.html")));
+                    ("users.xml")));
 
-            users = (ArrayList<User>) decoder.readObject();
-
+            users = ((List<User>) decoder.readObject());
 
         } catch (IOException io) {
 
@@ -42,18 +40,30 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void save(User user) {
-        List<User> users = new ArrayList<>();
-        users.add(user);
+    public void save(List<User> users) {
+        //List<User> users = new ArrayList<>();
+        //users.add(user);
         XMLEncoder encoder = null;
         try {
             encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream
-                    ("D:\\study\\java\\by.nanial.testtask\\users.html")));
+                    ("users.xml")));
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         encoder.writeObject(users);
         encoder.close();
+    }
+
+    @Override
+    public boolean deleteUser(int id) {
+        boolean isDeleted = false;
+        for (User u : this.getListUser()){
+            if(u.getId() == id){
+                this.getListUser().remove(u);
+                isDeleted = true;
+            }
+        }
+        return isDeleted;
     }
 }
