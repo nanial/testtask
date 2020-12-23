@@ -27,22 +27,16 @@ public class UserDaoImpl implements UserDao {
         try {
             XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream
                     ("users.xml")));
-
             users = ((List<User>) decoder.readObject());
-
         } catch (IOException io) {
-
             io.getMessage();
         }
-
         return users;
-
     }
 
     @Override
     public void save(List<User> users) {
-        //List<User> users = new ArrayList<>();
-        //users.add(user);
+
         XMLEncoder encoder = null;
         try {
             encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream
@@ -53,17 +47,5 @@ public class UserDaoImpl implements UserDao {
         }
         encoder.writeObject(users);
         encoder.close();
-    }
-
-    @Override
-    public boolean deleteUser(int id) {
-        boolean isDeleted = false;
-        for (User u : this.getListUser()){
-            if(u.getId() == id){
-                this.getListUser().remove(u);
-                isDeleted = true;
-            }
-        }
-        return isDeleted;
     }
 }

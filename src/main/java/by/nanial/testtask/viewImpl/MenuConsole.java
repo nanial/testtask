@@ -4,7 +4,7 @@ import by.nanial.testtask.apiBusiness.UserReader;
 import by.nanial.testtask.business.UserManagerImpl;
 import by.nanial.testtask.business.UserReaderImpl;
 import by.nanial.testtask.view.Menu;
-
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuConsole implements Menu {
@@ -52,12 +52,15 @@ public class MenuConsole implements Menu {
                         choice = commandLine(scan);
                 }
             }
+        }catch (InputMismatchException e){
+            e.getMessage();
         }
     }
     public void adminPanel() {
 
     }
     private int commandLine(Scanner scanner){
+
         System.out.println("Choice next operation");
         while (!scanner.hasNextInt()){
             System.out.println("Choice next operation");

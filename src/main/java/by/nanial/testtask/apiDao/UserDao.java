@@ -8,6 +8,4 @@ public interface UserDao {
     User infoUser(int id);
     List<User> getListUser();
     void save(List<User> users);
-    boolean deleteUser(int id);
-
 }

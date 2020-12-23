@@ -16,7 +16,7 @@ public class User implements Serializable {
     private List<Role> roles;
 
     public User() {
-        this.id = count.incrementAndGet();
+
     }
 
     public User(String name, String surname, String email, List<String> phoneNumbers,

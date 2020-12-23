@@ -19,13 +19,17 @@ public enum Role {
         }
         return isContain;
     }
-    public static boolean permission(Role role){
-        boolean hasPermission = false;
-        for (Role s : Role.values()){
-            if(s.getLevel() != role.getLevel() && s.getLevel() != 3){//change conditions
-                hasPermission = true;
-            }
+    public static boolean hasPermission(User user, Role role){
+        boolean hasPermission = true;
+        if(user.getRoles().size() == 0){
+            hasPermission = true;
         }
+        for (Role s : user.getRoles()){
+            if(role.getLevel() == s.getLevel() ||
+                     s.getLevel() == 3 || role.getLevel() == 3){
+                    hasPermission = false;
+                }
+            }
         return hasPermission;
     }
 }
