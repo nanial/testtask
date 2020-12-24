@@ -14,24 +14,39 @@ public class UserReaderImpl implements UserReader {
 
     public List<String> getUserData(){
         int phoneCounter = 0;
-        int roleCounter = 0;
+        List<Integer> tempRoles = new ArrayList<>();
         System.out.println("Input your name, surname, email, phone numbers, role, please");
         this.read();
         for (String s : userData) {
             if (new PhoneValidator().validate(s)) {
                 phoneCounter++;
             }
-        }
-        for (String s : userData) {
             if(Role.contains(s.toUpperCase())){
-                roleCounter++;
+                tempRoles.add(Role.valueOf(s.toUpperCase()).getLevel());
             }
         }
-            if (phoneCounter > 3 || roleCounter > 2){
-                System.out.println("Number of your phones/roles is excessive try again, please");
-                userData = new ArrayList<>();
-                this.read();
+        boolean flag = false;
+        for (int i = 0; i < tempRoles.size(); i++) {
+            for (int k = i + 1; k < tempRoles.size(); k++) {
+                if (tempRoles.get(i).equals(tempRoles.get(k))) {
+                    flag = true;
+                }
+                if(tempRoles.get(i).equals(3) && tempRoles.size() > 1){
+                    flag = true;
+                }
             }
+        }
+        if (flag){
+            System.out.println("Level of your roles is incompatible try again, please");
+            userData = new ArrayList<>();
+            this.read();
+        }
+
+        if (phoneCounter > 3 || tempRoles.size() > 2){
+            System.out.println("Number of your phones/roles is excessive try again, please");
+            userData = new ArrayList<>();
+            this.read();
+        }
         return userData;
     }
     private void read(){

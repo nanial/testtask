@@ -45,7 +45,7 @@ public class MenuConsole implements Menu {
                         choice = commandLine(scan);
                         break;
                     case 6:
-                        manager.save(manager.getUsers());
+                        //manager.save(manager.getUsers());
                         break;
                     default:
                         System.out.println("You have been done incorrect command");
