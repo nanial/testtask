@@ -25,18 +25,18 @@ public class UserReaderImpl implements UserReader {
                 tempRoles.add(Role.valueOf(s.toUpperCase()).getLevel());
             }
         }
-        boolean flag = false;
+        boolean flagToRepeatRead = false;
         for (int i = 0; i < tempRoles.size(); i++) {
             for (int k = i + 1; k < tempRoles.size(); k++) {
                 if (tempRoles.get(i).equals(tempRoles.get(k))) {
-                    flag = true;
+                    flagToRepeatRead = true;
                 }
                 if(tempRoles.get(i).equals(3) && tempRoles.size() > 1){
-                    flag = true;
+                    flagToRepeatRead = true;
                 }
             }
         }
-        if (flag){
+        if (flagToRepeatRead){
             System.out.println("Level of your roles is incompatible try again, please");
             userData = new ArrayList<>();
             this.read();
