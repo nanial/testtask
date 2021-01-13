@@ -29,21 +29,20 @@ public class UserReaderImpl implements UserReader {
         for (int i = 0; i < tempRoles.size(); i++) {
             for (int k = i + 1; k < tempRoles.size(); k++) {
                 if (tempRoles.get(i).equals(tempRoles.get(k))) {
+                    System.out.println("Level of your roles is incompatible try again, please");
                     flagToRepeatRead = true;
                 }
                 if(tempRoles.get(i).equals(3) && tempRoles.size() > 1){
+                    System.out.println("Level of your roles is incompatible try again, please");
                     flagToRepeatRead = true;
                 }
             }
         }
-        if (flagToRepeatRead){
-            System.out.println("Level of your roles is incompatible try again, please");
-            userData = new ArrayList<>();
-            this.read();
-        }
-
         if (phoneCounter > 3 || tempRoles.size() > 2){
             System.out.println("Number of your phones/roles is excessive try again, please");
+            flagToRepeatRead  = true;
+        }
+        if (flagToRepeatRead){
             userData = new ArrayList<>();
             this.read();
         }
